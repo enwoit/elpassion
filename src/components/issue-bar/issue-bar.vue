@@ -28,11 +28,12 @@
         border: 1px solid #e0e0e0 ;
         background-color:  #ffffff;
         cursor: pointer;
-        width: 463px;
-        height: 38px;
+        max-width: 463px;
+        width:100%;
+        min-height: 38px;
         display: flex;
         align-items: center;
-        padding:0 10px;
+        padding:3px 10px;
         justify-content: space-between;
         color:  #080606;
         font-size: 14px;

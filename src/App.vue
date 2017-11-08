@@ -28,5 +28,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding:0 15px;
 }
 </style>

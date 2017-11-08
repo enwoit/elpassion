@@ -142,7 +142,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 650px;
+    max-width: 650px;
+    width: 100%;
     height: 500px;
   }
 
@@ -195,6 +196,7 @@ export default {
     color:  #8a8995;
     font-size: 12px;
     font-weight: 400;
+    float: left;
     margin:5px 0 10px;
   }
 
