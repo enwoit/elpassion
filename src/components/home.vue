@@ -237,6 +237,7 @@ export default {
     .app-content {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
+      max-width: 100%;
     }
   }
 
