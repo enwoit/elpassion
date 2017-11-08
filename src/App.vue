@@ -30,4 +30,13 @@ export default {
   align-items: center;
   padding:0 15px;
 }
+
+  @media (max-width: 676px) {
+    #app {
+      align-items: flex-start;
+      background-attachment: fixed;
+      padding-top: 50px;
+      height: 100%;
+    }
+  }
 </style>

@@ -186,7 +186,8 @@ export default {
     border-top-right-radius: 10px;
     box-shadow: 0 0 30px 0 rgba(0,0,0,0.4);
     background-color:  #f6f6f6;
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
     height: 100%;
     overflow: auto;
     padding:10px 20px;
@@ -218,6 +219,25 @@ export default {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #e0e0e0;
+  }
+
+  @media (max-width: 676px) {
+    .app-container {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .app-navigation {
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 10px;
+      width:100%;
+      height: auto;
+    }
+
+    .app-content {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
   }
 
 </style>
