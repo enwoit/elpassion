@@ -1,6 +1,6 @@
 <template>
         <div class="issue-bar" v-on:click="isChecked">
-            {{ item.name }} - {{ item.checked }}
+            {{ item.name }}
             <img src="../../assets/icon-star.svg" class="issue-icon" v-if="clicked">
             <img src="../../assets/icon-star-transparent.png" class="issue-icon" v-else>
         </div>
@@ -15,7 +15,6 @@
         },
         methods: {
             isChecked() {
-                console.log('dupa');
                 this.clicked = ! this.clicked
             }
         }
@@ -42,8 +41,6 @@
     }
 
     .issue-icon {
-        background: url('../../assets/icon-github.svg') top center no-repeat;
-        /*background: url('../../assets/icon-star.svg') top center no-repeat;*/
         width: 17px;
         display: inline-block;
         height: 16px;

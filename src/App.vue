@@ -35,8 +35,8 @@ export default {
     #app {
       align-items: flex-start;
       background-attachment: fixed;
-      padding-top: 50px;
-      height: 100%;
+      padding: 50px 15px;
+      height: 100vh;
     }
   }
 </style>

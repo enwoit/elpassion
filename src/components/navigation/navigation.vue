@@ -1,17 +1,17 @@
 <template>
     <div>
         <nav class="app-nav">
-            <a href="#" class="app-nav__item active">
+            <a href="#" class="app-nav__item" v-on:click.prevent="filter('')">
                 <i class="app-nav-icon app-nav-icon__github"></i> All
-                <span class="app-badge">12</span>
+                <span class="app-badge">10</span>
             </a>
-            <a href="#" class="app-nav__item">
+            <a href="#" class="app-nav__item" v-on:click.prevent="filter('open')">
                 <i class="app-nav-icon app-nav-icon__open-issue"></i> Open
                 <span class="app-badge">4</span>
             </a>
-            <a href="#" class="app-nav__item">
+            <a href="#" class="app-nav__item" v-on:click.prevent="filter('closed')">
                 <i class="app-nav-icon app-nav-icon__closed-issue"></i> Closed
-                <span class="app-badge">8</span>
+                <span class="app-badge">6</span>
             </a>
         </nav>
     </div>
@@ -20,9 +20,13 @@
     export default  {
         data () {
             return {
-
             }
         },
+        methods: {
+            filter(name) {
+                this.$emit('filtering', name);
+            }
+        }
     }
 </script>
 
