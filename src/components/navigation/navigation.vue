@@ -50,10 +50,9 @@
         transition: .2s all ease-out;
     }
 
-    .app-nav__item:hover {
-        background-color: #292a48;
-    }
-
+    .app-nav__item:hover,
+    .app-nav__item:focus,
+    .app-nav__item:active,
     .app-nav__item.active {
         background-color: #292a48;
     }
