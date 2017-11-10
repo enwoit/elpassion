@@ -9,69 +9,82 @@ export const store = new Vuex.Store({
             {
                 date: '21.07.2017',
                 name: 'Single Contact Page Changes',
-                status: 'closed'
+                status: 'closed',
+                checked: true
             },
             {
                 date: '19.07.2017',
                 name: 'Page Changes',
-                status: 'open'
+                status: 'open',
+                checked: false
             },
             {
                 date: '19.07.2017',
                 name: 'Sidebar changes',
-                status: 'open'
+                status: 'open',
+                checked: false
             },
             {
                 date: '14.07.2017',
                 name: 'Crash Update v2',
-                status: 'open'
+                status: 'open',
+                checked: false
             },
             {
                 date: '14.07.2017',
                 name: 'Crash Update',
-                status: 'closed'
+                status: 'closed',
+                checked: true
             },
             {
                 date: '18.07.2017',
                 name: 'Review of last issues',
-                status: 'closed'
+                status: 'closed',
+                checked: false
             },
             {
                 date: '18.07.2017',
                 name: 'Review of last issues2',
-                status: 'open'
+                status: 'open',
+                checked: false
 
             },
             {
                 date: '21.07.2017',
                 name: 'Review of last issues2',
-                status: 'open'
+                status: 'open',
+                checked: false
 
             },
             {
                 date: '18.07.2017',
                 name: 'Visual UI Update Review',
-                status: 'closed'
+                status: 'closed',
+                checked: false
             },
             {
                 date: '14.07.2017',
                 name: 'Visual UI Update Review',
-                status: 'open'
+                status: 'open',
+                checked: false
             },
             {
                 date: '11.07.2017',
                 name: 'Visual UI Update Review 2',
-                status: 'closed'
+                status: 'closed',
+                checked: false
             },
             {
                 date: '14.07.2017',
                 name: 'Page visual UI Update',
-                status: 'open'
+                status: 'open',
+                checked: false
             },
             {
                 date: '14.07.2017',
                 name: 'Sidebar update',
-                status: 'closed'
+                status: 'closed',
+                checked: false
             },
         ],
     },

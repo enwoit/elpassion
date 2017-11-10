@@ -1,7 +1,7 @@
 <template>
         <div class="issue-bar" v-on:click="isChecked">
             {{ item.name }}
-            <img src="../../assets/icon-star.svg" class="issue-icon" v-if="clicked">
+            <img src="../../assets/icon-star.svg" class="issue-icon" v-if="item.checked">
             <img src="../../assets/icon-star-transparent.png" class="issue-icon" v-else>
         </div>
 </template>
@@ -15,7 +15,7 @@
         },
         methods: {
             isChecked() {
-                this.clicked = ! this.clicked
+                this.item.checked = !this.item.checked
             }
         }
     }
