@@ -16,7 +16,7 @@
                     {{ items.date }}
                 </div>
                 <app-issue-bar  v-for="item in items.issues"
-                               :key="item.status"
+                               :key="item.name"
                                :item="item">
                 </app-issue-bar>
             </div>
@@ -30,31 +30,34 @@
     import issueBar from './issue-bar/issue-bar.vue'
     import App from "../App.vue";
     import _ from 'lodash';
+    import { mapGetters } from 'vuex'
 
     export default {
         data() {
             return {
-                filterText: ''
+                issueStatus: ''
             }
         },
         computed: {
-            issues() {
-              return this.$store.state.issues;
-            },
+            ...mapGetters([
+                'allIssues',
+                'doneIssues',
+                'openIssues',
+            ]),
             orderedItemsByDate: function () {
                 let orderedItems = [];
-                let status = this.filterText;
+                let status = this.issueStatus;
                 let result;
 
                 if (status === '') {
-                    orderedItems = _.orderBy(this.issues, 'date').reverse()
+                    orderedItems = _.orderBy(this.allIssues, 'date').reverse()
+                } else if (status === 'open') {
+                    orderedItems = _.orderBy(this.openIssues, 'date').reverse()
                 } else {
-                    orderedItems = _.orderBy(this.issues.filter(issue =>
-                        issue.status === status
-                    ), 'date').reverse()
+                    orderedItems = _.orderBy(this.doneIssues)
                 }
 
-            result = _.chain(orderedItems)
+                result = _.chain(orderedItems)
                 .groupBy('date')
                 .toPairs()
                 .map(function (pair) {
@@ -66,7 +69,7 @@
         methods: {
             // catch filter params from navigation
             filterIssues(name) {
-                this.filterText = name;
+                this.issueStatus = name;
             }
         },
         components: {

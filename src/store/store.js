@@ -59,6 +59,11 @@ export const store = new Vuex.Store({
                 status: 'open'
             },
             {
+                date: '11.07.2017',
+                name: 'Visual UI Update Review 2',
+                status: 'closed'
+            },
+            {
                 date: '14.07.2017',
                 name: 'Page visual UI Update',
                 status: 'open'
@@ -71,11 +76,14 @@ export const store = new Vuex.Store({
         ],
     },
     getters: {
+        allIssues: state => {
+            return state.issues
+        },
         doneIssues: state => {
-            return state.issues.filter(todo => todo.status === 'closed')
+            return state.issues.filter(issue => issue.status === 'closed')
         },
         openIssues: state => {
-            return state.issues.filter(todo => todo.status === 'open')
+            return state.issues.filter(issue => issue.status === 'open')
         },
     }
 })

@@ -1,15 +1,24 @@
 <template>
     <div>
         <nav class="app-nav">
-            <a href="#" class="app-nav__item" v-on:click.prevent="filter('')">
+            <a href="#"
+               class="app-nav__item"
+               :class="{ active: isActive('') }"
+               v-on:click.prevent="filter('')">
                 <i class="app-nav-icon app-nav-icon__github"></i> All
-                <span class="app-badge">{{ issues.length }}</span>
+                <span class="app-badge">{{ allIssues.length }}</span>
             </a>
-            <a href="#" class="app-nav__item" v-on:click.prevent="filter('open')">
+            <a href="#"
+               class="app-nav__item"
+               :class="{ active: isActive('open') }"
+               v-on:click.prevent="filter('open')">
                 <i class="app-nav-icon app-nav-icon__open-issue"></i> Open
                 <span class="app-badge">{{ openIssues.length }}</span>
             </a>
-            <a href="#" class="app-nav__item" v-on:click.prevent="filter('closed')">
+            <a href="#"
+               class="app-nav__item"
+               :class="{ active: isActive('closed') }"
+               v-on:click.prevent="filter('closed')">
                 <i class="app-nav-icon app-nav-icon__closed-issue"></i> Closed
                 <span class="app-badge">{{ doneIssues.length }}</span>
             </a>
@@ -20,19 +29,24 @@
     import { mapGetters } from 'vuex'
 
     export default  {
+        data() {
+            return {
+                activeItem: ''
+            }
+        },
         computed: {
             ...mapGetters([
+                'allIssues',
                 'doneIssues',
                 'openIssues',
             ]),
-
-
-            issues() {
-                return this.$store.state.issues;
-            },
         },
         methods: {
+            isActive: function (menuItem) {
+                return this.activeItem === menuItem
+            },
             filter(name) {
+                this.activeItem = name;
                 this.$emit('filtering', name);
             },
         }
