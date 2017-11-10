@@ -17,6 +17,6 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-## [LIVE DEMO] (http://enwoit.nazwa.pl/elpassion/index.html)
+ ##[LIVE DEMO](http://enwoit.nazwa.pl/elpassion/index.html)
 ### Using
 VueJS, Vuex, Webpack, BEM, CSS Filters, Flexbox, Scss, RWD
