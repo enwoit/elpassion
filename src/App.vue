@@ -36,7 +36,7 @@ export default {
       align-items: flex-start;
       background-attachment: fixed;
       padding: 50px 15px;
-      height: 100vh;
+      height: 100%;
     }
   }
 </style>
