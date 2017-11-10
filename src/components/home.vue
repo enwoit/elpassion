@@ -7,7 +7,10 @@
                 <span class="dot dot--green"></span>
             </div>
 
-            <app-navigation v-on:filtering="filterIssues"></app-navigation>
+            <app-navigation
+                    v-on:filtering="filterIssues"
+            ></app-navigation>
+            <div class="blur"></div>
         </section>
 
         <section class="app-content">
@@ -70,7 +73,7 @@
             // catch filter params from navigation
             filterIssues(name) {
                 this.issueStatus = name;
-            }
+            },
         },
         components: {
             App,
@@ -80,7 +83,9 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+    @import '../vars';
+
     .app-container {
         display: flex;
         justify-content: center;
@@ -91,37 +96,52 @@
     }
 
     .app-navigation {
+        background-color: rgba(16, 16, 34, 0.3);
         border-bottom-left-radius: 10px;
         border-top-left-radius: 10px;
         box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-        background-color: rgba(16, 16, 34, 0.95);
         width: 150px;
         height: 100%;
+        position: relative;
+        overflow: hidden;
+
+        &--icons {
+            justify-content: center;
+            padding: 10px 15px;
+            position: relative;
+            z-index: 20;
+        }
     }
 
-    .app-navigation--icons {
-        justify-content: center;
-        padding: 10px 15px;
+    .blur {
+        background-color: rgba(16, 16, 34, 0.9);
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        filter: blur(2px);
+        bottom: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
     }
 
     .dot {
-        display: inline-flex;
         border-radius: 50%;
-        width: 10px;
+        display: inline-flex;
         height: 10px;
         margin-right: 5px;
-    }
+        width: 10px;
 
-    .dot--red {
-        background-color: #ff594f;
-    }
+        &--red {
+            background-color: $red;
+        }
 
-    .dot--yellow {
-        background-color: #ffbc1b;
-    }
+        &--yellow {
+            background-color: $yellow;
+        }
 
-    .dot--green {
-        background-color: #00cd46;
+        &--green {
+            background-color: $green;
+        }
     }
 
     .app-content {
@@ -134,32 +154,32 @@
         height: 100%;
         overflow: auto;
         padding: 10px 20px;
-    }
 
-    .app-content__date {
-        color: #8a8995;
-        font-size: 12px;
-        font-weight: 400;
-        float: left;
-        margin: 5px 0 10px;
-        width: 100%;
+        &__date {
+            color: $date-color;
+            font-size: 12px;
+            font-weight: 400;
+            float: left;
+            margin: 5px 0 10px;
+            width: 100%;
+        }
     }
 
     .app-content::-webkit-scrollbar-track {
+        background-color: $scrollbar-track;
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
-        background-color: #F5F5F5;
+        border-radius: $border-radius;
     }
 
     .app-content::-webkit-scrollbar {
+        background-color: $scrollbar;
         width: 4px;
-        background-color: #e0e0e0;
     }
 
     .app-content::-webkit-scrollbar-thumb {
-        border-radius: 10px;
+        border-radius: $border-radius;
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-        background-color: #e0e0e0;
+        background-color: $border-color;
     }
 
     @media (max-width: 676px) {
@@ -170,13 +190,13 @@
 
         .app-navigation {
             border-bottom-left-radius: 0;
-            border-top-right-radius: 10px;
-            width: 100%;
+            border-top-right-radius: $border-radius;
             height: auto;
+            width: 100%;
         }
 
         .app-content {
-            border-bottom-left-radius: 10px;
+            border-bottom-left-radius: $border-radius;
             border-top-right-radius: 0;
             max-width: 100%;
         }

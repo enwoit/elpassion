@@ -1,4 +1,4 @@
-# elpassion-project
+# Github issues list
 
 > Jacek Bułyk jacek@enwoit.pl
 
@@ -17,7 +17,6 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-# elpassion
-VueJS, Webpack, BEM
+## [LIVE DEMO] (http://enwoit.nazwa.pl/elpassion/index.html)
+### Using
+VueJS, Vuex, Webpack, BEM, CSS Filters, Flexbox, Scss, RWD

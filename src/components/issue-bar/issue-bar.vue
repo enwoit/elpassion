@@ -1,18 +1,13 @@
 <template>
-        <div class="issue-bar" v-on:click="isChecked">
+        <div class="issue__bar" v-on:click="isChecked">
             {{ item.name }}
-            <img src="../../assets/icon-star.svg" class="issue-icon" v-if="item.checked">
-            <img src="../../assets/icon-star-transparent.png" class="issue-icon" v-else>
+            <img src="../../assets/icon-star.svg" class="issue__icon" v-if="item.checked">
+            <img src="../../assets/icon-star-transparent.png" class="issue__icon" v-else>
         </div>
 </template>
 <script>
     export default  {
         props: ['item'],
-        data () {
-            return {
-                clicked: false
-            }
-        },
         methods: {
             isChecked() {
                 this.item.checked = !this.item.checked
@@ -21,28 +16,31 @@
     }
 </script>
 
-<style>
-    .issue-bar {
-        border-radius: 5px;
-        border: 1px solid #e0e0e0 ;
-        background-color:  #ffffff;
-        cursor: pointer;
-        width:100%;
-        min-height: 38px;
-        display: flex;
+<style lang="scss">
+    @import '../../vars';
+
+    .issue__bar {
         align-items: center;
-        padding:3px 10px;
-        justify-content: space-between;
-        color:  #080606;
+        border-radius: $border-radius-small;
+        border: 1px solid $border-color ;
+        background-color:  $white;
+        color:  $issue-font-color;
+        cursor: pointer;
+        display: flex;
         font-size: 14px;
         font-weight: 400;
+        justify-content: space-between;
         margin-bottom: 5px;
+        min-height: 38px;
+        outline: none;
+        padding:3px 10px;
+        width:100%;
     }
 
-    .issue-icon {
-        width: 17px;
+    .issue__icon {
         display: inline-block;
         height: 16px;
+        width: 17px;
     }
 </style>
 

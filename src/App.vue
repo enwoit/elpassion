@@ -21,14 +21,14 @@ export default {
     box-sizing: border-box;
   }
 
-#app {
-  background: url('assets/background.jpg') top center no-repeat;
-  background-size: cover;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding:0 15px;
+  #app {
+    align-items: center;
+    background: url('assets/background.jpg') center center no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    padding:0 15px;
 }
 
   @media (max-width: 676px) {
