@@ -15,7 +15,7 @@
                 <div class="app-content__date">
                     {{ items.date }}
                 </div>
-                <app-issue-bar  v-for="item in items.items"
+                <app-issue-bar  v-for="item in items.issues"
                                :key="item.status"
                                :item="item">
                 </app-issue-bar>
@@ -34,83 +34,22 @@
     export default {
         data() {
             return {
-                itemsAll: [
-                    {
-                        date: '19.07.2017',
-                        name: 'Page Changes',
-                        checked: true,
-                        status: 'closed'
-                    },
-                    {
-                        date: '19.07.2017',
-                        name: 'Sidebar changes',
-                        checked: true,
-                        status: 'open'
-                    },
-                    {
-                        date: '14.07.2017',
-                        name: 'Crash Update v2',
-                        checked: false,
-                        status: 'open'
-                    },
-                    {
-                        date: '14.07.2017',
-                        name: 'Crash Update',
-                        checked: false,
-                        status: 'closed'
-                    },
-                    {
-                        date: '18.07.2017',
-                        name: 'Review of last issues',
-                        checked: true,
-                        status: 'closed'
-                    },
-                    {
-                        date: '18.07.2017',
-                        name: 'Review of last issues2',
-                        checked: true,
-                        status: 'closed'
-
-                    },
-                    {
-                        date: '18.07.2017',
-                        name: 'Visual UI Update Review',
-                        checked: false,
-                        status: 'closed'
-                    },
-                    {
-                        date: '14.07.2017',
-                        name: 'Visual UI Update Review',
-                        checked: false,
-                        status: 'open'
-                    },
-                    {
-                        date: '14.07.2017',
-                        name: 'Page visual UI Update',
-                        checked: true,
-                        status: 'open'
-                    },
-                    {
-                        date: '14.07.2017',
-                        name: 'Sidebar update',
-                        checked: false,
-                        status: 'closed'
-                    },
-
-                ],
                 filterText: ''
             }
         },
         computed: {
+            issues() {
+              return this.$store.state.issues;
+            },
             orderedItemsByDate: function () {
                 let orderedItems = [];
                 let status = this.filterText;
                 let result;
 
                 if (status === '') {
-                    orderedItems = _.orderBy(this.itemsAll, 'date').reverse()
+                    orderedItems = _.orderBy(this.issues, 'date').reverse()
                 } else {
-                    orderedItems = _.orderBy(this.itemsAll.filter(issue =>
+                    orderedItems = _.orderBy(this.issues.filter(issue =>
                         issue.status === status
                     ), 'date').reverse()
                 }
@@ -119,9 +58,8 @@
                 .groupBy('date')
                 .toPairs()
                 .map(function (pair) {
-                    return _.zipObject(['date', 'items'], pair); }).value();
+                    return _.zipObject(['date', 'issues'], pair); }).value();
 
-                console.log(result);
                 return result;
             }
         },
@@ -201,6 +139,7 @@
         font-weight: 400;
         float: left;
         margin: 5px 0 10px;
+        width: 100%;
     }
 
     .app-content::-webkit-scrollbar-track {

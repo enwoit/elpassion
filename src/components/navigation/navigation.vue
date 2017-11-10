@@ -3,29 +3,38 @@
         <nav class="app-nav">
             <a href="#" class="app-nav__item" v-on:click.prevent="filter('')">
                 <i class="app-nav-icon app-nav-icon__github"></i> All
-                <span class="app-badge">10</span>
+                <span class="app-badge">{{ issues.length }}</span>
             </a>
             <a href="#" class="app-nav__item" v-on:click.prevent="filter('open')">
                 <i class="app-nav-icon app-nav-icon__open-issue"></i> Open
-                <span class="app-badge">4</span>
+                <span class="app-badge">{{ openIssues.length }}</span>
             </a>
             <a href="#" class="app-nav__item" v-on:click.prevent="filter('closed')">
                 <i class="app-nav-icon app-nav-icon__closed-issue"></i> Closed
-                <span class="app-badge">6</span>
+                <span class="app-badge">{{ doneIssues.length }}</span>
             </a>
         </nav>
     </div>
 </template>
 <script>
+    import { mapGetters } from 'vuex'
+
     export default  {
-        data () {
-            return {
-            }
+        computed: {
+            ...mapGetters([
+                'doneIssues',
+                'openIssues',
+            ]),
+
+
+            issues() {
+                return this.$store.state.issues;
+            },
         },
         methods: {
             filter(name) {
                 this.$emit('filtering', name);
-            }
+            },
         }
     }
 </script>
